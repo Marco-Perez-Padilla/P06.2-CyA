@@ -77,7 +77,7 @@ bool ValidateNumber (const std::string& line) {
  */
 void CheckFileError (const std::string& name) {
   if (ValidateFile(name)) return;
-  std::cerr << "Error in input file: Wrong extension. Please, try \"p06_automata_simulator --help\" for further information" << std::endl;
+  std::cerr << "Error in input file: Wrong extension. Please, try \"./p06_automata_simulator --help\" for further information" << std::endl;
   exit(EXIT_FAILURE);
 }
 
@@ -88,7 +88,7 @@ void CheckFileError (const std::string& name) {
  */
 void CheckAutomataError (const std::string& name) {
   if (ValidateAutomatanFile(name)) return;
-  std::cerr << "Error in input file: Wrong extension. Please, try \"p06_automata_simulator --help\" for further information" << std::endl;
+  std::cerr << "Error in input file: Wrong extension. Please, try \"./p06_automata_simulator --help\" for further information" << std::endl;
   exit(EXIT_FAILURE);
 }
 
@@ -122,7 +122,7 @@ void ValidateCommand(int argc, char* argv[]) {
  */
 void Help () {
     std::cout << "./p06_automata_simulator -- Code analyzer\n"
-              << "Usage:          ./p06_automata_simulator input.fa input.txt\n"
+              << "Usage:          ./p06_automata_simulator input.fa <input.txt|string>\n"
               << "\n"
               << "input.fa:        Input file with extension fa. Codificates the information of the automaton such as:\n"
               << "                       Line 1: Alphabet simbols separated by one blank space.\n"
@@ -136,6 +136,7 @@ void Help () {
               << "                                               - Required symbol so the transition is executed.\n"
               << "                                               - Destiny state in the transition.\n"
               << "input.txt:       Input file with extension txt. It has a string belonging to the given alphabet in each line.\n"
+              << "string:          String to be analyzed."
               << "\n";
 }
 
@@ -144,6 +145,6 @@ void Help () {
  * @brief Prints how to use the program
  */
 void Usage() {
-  std::cout << "How to use: ./p06_automata_simulator input.fa input.txt\n"
-            << "Try 'p06_automata_simulator --help' for further information\n";
+  std::cout << "How to use: ./p06_automata_simulator input.fa <input.txt|string>\n"
+            << "Try './p06_automata_simulator --help' for further information\n";
 }
